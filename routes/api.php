@@ -1,5 +1,6 @@
 <?php
 
+use App\Anime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route as FacadesRoute;
 
@@ -16,4 +17,8 @@ use Illuminate\Support\Facades\Route as FacadesRoute;
 
 FacadesRoute::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+FacadesRoute::get('/animes', function () {
+    return Anime::all();
 });
